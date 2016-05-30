@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sticky-footer-navbar.css' %}"
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'core:home' %}">Simple MOOC</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="{{ home_link_selected }}"><a href="{% url 'core:home' %}">Início</a></li>
+                <li class="{{ courses_link_selected }}"><a href="{% url 'courses:index'%}">Cursos</a></li>
+                <li class="{{ contact_link_selected }}"><a href="{% url 'core:contact' %}">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+<div class="footer-static">
+    <footer class="footer-inverse">
+        <div class="container">
+            <p class="text-muted" style="text-align: center">Place sticky footer content here.</p>
+        </div>
+    </footer>
+</div>
+</body>
+
+</html>

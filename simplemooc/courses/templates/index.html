@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container container-base">
+        <h2 style="font-weight: bold; color: gray">LISTAGEM DE CURSOS</h2>
+        <hr width="350px" align="left" role="separator"/>
+        <div class="container">
+            <h4 style="font-weight: bold">Abaixo a lista de cursos disponíveis na plataforma.</h4>
+        </div>
+
+        <hr role="separator"/>
+
+        {% if courses %}
+            {% for course in courses %}
+                <div class="container" style="margin-top: 40px; padding: 15px">
+
+                    <div class="col-md-4">
+                        <a href="#" class="thumbnail" style="max-width: 450px;
+                            margin-left: auto; margin-right: auto">
+                            {% if course.image %}
+                                <img class="img-responsive" src="{{ course.image.url }}"
+                                     alt="{{ course.name }}"
+                                     style="width:450px;height:250px">
+                            {% else %}
+                                <img class="img-responsive" src="{% static 'img/no_image.png' %}"
+                                     alt="{{ course.name }}"
+                                     style="width:450px;height:250px">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <a href="#"><p style="font-size: 16pt">{{ course|upper }}</p></a>
+                        <hr role="separator" style="margin-top: -10px"/>
+                        {{ course.description|linebreaks }}
+                    </div>
+                </div>
+                <hr role="separator"/>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.container-base {
+    padding: 60px 15px 0;
+}
+
+.container-default {
+    margin-bottom: 60px;
+}
+
+.container-fixed {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+}
